@@ -14,7 +14,6 @@ body, html {
   }
   .dropdown{
     @include span-columns(8 of 8);
-    min-height: 10px;
     height: auto;
     margin-top: -12px;
     background-color: #ffffff;
@@ -24,24 +23,26 @@ body, html {
     border-style: solid;
     border-bottom-left-radius: 3px;
     border-bottom-right-radius: 3px;
-    padding: 1em 0.5em 0.5em 0.5em;
     font-size: 1em;
 
-    a{
+    .item{
       @include span-columns(8 of 8);
+      padding-top: 0.5em;
+      padding-left: 0.5em;
+      padding-right: 0.5em;
     }
 
     li {
       border-width: 1px;
       float: left;
       @include span-columns(5 of 8);
-      padding-left: 0.5em;
+      //padding-left: 0.5em;
       //padding-top: 0.75em;
     }
     p {
-      float: right;
       @include span-columns(3 of 8);
-      @include omega();
+      float: right;
+      text-align: right;
       color: #ddd;
       //padding-top: 0.75em;
     }
