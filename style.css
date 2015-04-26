@@ -270,11 +270,38 @@ body, html {
     box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.06);
     border-width: 1px;
     border-style: solid;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-    padding: 0.5em 0.5em;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    padding: 1em 0.5em 0.5em 0.5em;
     font-size: 1em; }
     .genesis .dropdown:last-child {
       margin-right: 0; }
+    .genesis .dropdown a {
+      float: left;
+      display: block;
+      margin-right: 3.57866%;
+      width: 100%; }
+      .genesis .dropdown a:last-child {
+        margin-right: 0; }
+    .genesis .dropdown li {
+      border-width: 1px;
+      float: left;
+      float: left;
+      display: block;
+      margin-right: 3.57866%;
+      width: 61.158%;
+      padding-left: 0.5em; }
+      .genesis .dropdown li:last-child {
+        margin-right: 0; }
+    .genesis .dropdown p {
+      float: right;
+      float: left;
+      display: block;
+      margin-right: 3.57866%;
+      width: 35.26334%;
+      margin-right: 0;
+      color: #ddd; }
+      .genesis .dropdown p:last-child {
+        margin-right: 0; }
 
 /*# sourceMappingURL=style.css.map */
