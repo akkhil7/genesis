@@ -6,11 +6,13 @@ var data=[{"id":5,"email":"akhilr94@gmail.com","username":"akhil"},
 {"id":8,"email":"wow@gmail.com","username":"HELLO"}
 ]
 var itemCounter = -1;
+
+/* ---- EVENT LISTENERS ---- */
 window.addEventListener('load', function(){
   var box = document.getElementById('input');
   var dropdown = document.getElementsByClassName('dropdown')[0];
 
-  box.addEventListener('keydown', function(e){
+  /*box.addEventListener('keydown', function(e){
     if(isChar(e)) {
       findMatch(e);
       show(e);
@@ -18,7 +20,7 @@ window.addEventListener('load', function(){
     else
       hide(e);
 
-  });
+  });*/
 
   box.addEventListener('keyup', function(e){
     if(isChar(e)) {
@@ -28,8 +30,6 @@ window.addEventListener('load', function(){
     else
       hide(e);
   });
-
-
 
 });
 /* ---- SHOW DROPDOWN MENU ----- */
@@ -51,7 +51,7 @@ function hide(e){
    box.style.borderRadius = '3px';
   }
 }
-// /*-------- FIND MATCH FUNCTION -------*/
+// /*-------- IF A CHARACTER IS ENTERED, DO THESE OPERATIONS -------*/
 function findMatch(e){
   var box = document.getElementById('input');
   var dropdown = document.getElementsByClassName('dropdown')[0];
@@ -60,7 +60,7 @@ function findMatch(e){
 
   var str=box.value;
   var result=[];
-  if(e.which !=40 && e.which !=38)
+  if(e.which != 40 && e.which != 38)
     itemCounter = -1;
   if(str != "") {
     for(var i=0;i<data.length;i++)
@@ -68,15 +68,15 @@ function findMatch(e){
       if(user.username.contains(str) || user.email.contains(str))
         result.push(user);
     }
-    if(result.length>0) {  //if there are any results, do this
-      //console.log(result.length);
+    if(result.length>0) {  //IF THERE ARE ANY RESULTS
+
       var ul = document.createElement("ul");
       dropdown.appendChild(ul);
 
       for(var i=0;i<result.length;i++)
       { var li = document.createElement("li");
         var a  = document.createElement("a");
-        var p  = document.createElement("p");
+        var p  = document  .createElement("p");
         //sorry i'm a js rookie. there's a lot to refactor i'm sure about that.
         var username = result[i].username.toLowerCase();
         li.innerHTML = "@"+username;
@@ -87,13 +87,14 @@ function findMatch(e){
         a.setAttribute("class", "item");
         ul.appendChild(a);
       }
-
-      if(e.which==40)  //move the highlight down
+      /* ---- KEYBOARD CONTROLS (UP AND DOWN ARROW) ---- */
+      if(e.which==40)  
         moveDown(e);
       if(e.which==38)
         moveUp(e);
-      var items = dropdown.getElementsByClassName('item');
+      /* END OF KEYBOARD CONTROLS */
 
+      /* ---- MOUSE CONTROLS ---- */
       dropdown.addEventListener("mouseover", function(e) {
         if(e.target && (e.target.nodeName == "A" || e.target.nodeName=="LI" || e.target.nodeName=="P"))
           { if(e.target.nodeName == "LI" || e.target.nodeName == "P")
@@ -116,10 +117,10 @@ function findMatch(e){
                 e.target.style.backgroundColor = "";
         }
       });
-
+    /* END OF MOUSE CONTROLS */
        
     }
-    else  //if there aren't any results
+    else  //IF THERE ARE NO RESULTS
       dropdown.innerHTML = "<li style='color: #477DCA; padding: 0.5em;'> Can't find any results </li>";
     }
 }
@@ -154,15 +155,14 @@ function moveUp(e) {
   }
 }
 
-//modify String prototype
-
+/* ---- CHECK SUBSTRING OF STRING  ---- */
 String.prototype.contains=function(str){
   if (this.indexOf(str)!==-1)
     return true;
   else
     return false;
 }
-
+/* ---- IS CHARACTER CHECKER  ---- */
 function isChar(evt) {
   if(typeof evt.which == "number" && evt.which > 0)
     return !evt.ctrlKey && !evt.metaKey && !evt.altKey && evt.which != 8 && evt.which !=9;
