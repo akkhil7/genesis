@@ -1,6 +1,6 @@
 #Genesis
 
-Genesis is a an autocomplete complete that I wrote many years ago and it's just really bad code. 
+Genesis is a an autocomplete component that I wrote many years ago and it's just really bad code. 
 
 *Next version*
 
